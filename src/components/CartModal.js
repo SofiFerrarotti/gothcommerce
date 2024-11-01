@@ -1,4 +1,3 @@
-// src/components/CartModal.js
 import React, { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 import './CartModal.css'; 
