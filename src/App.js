@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import CartWidget from './components/CartWidget';
+import ItemListContainer from './components/ItemListContainer';
+import CheckoutModal from './components/CheckoutModal';
 
-function App() {
+const App = () => {
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <CartWidget onCheckoutOpen={() => setIsCheckoutOpen(true)} />
+      <ItemListContainer />
+      <CheckoutModal isOpen={isCheckoutOpen} onClose={() => setIsCheckoutOpen(false)} />
     </div>
   );
-}
+};
 
 export default App;
